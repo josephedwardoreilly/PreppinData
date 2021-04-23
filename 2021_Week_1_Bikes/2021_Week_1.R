@@ -32,7 +32,7 @@ dt <- dt[-(1:10)]
 # Task 5 - Output the data as a csv
 fwrite(
   dt[,.(
-    Quarter, day.of.month, Store,
+    quarter, day.of.month, Store,
     Bike, `Order ID`, `Customer Age`,
     `Bike Value`, `Existing Customer?`)],
   here::here(
