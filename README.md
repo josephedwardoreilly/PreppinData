@@ -1,3 +1,3 @@
 # PreppinData
 
-A few examples from the Preppin' Data challenge, done first in R with data.table and then in MySql. 
+Preppin' Data challenges, done in PostgreSQL mainly. Using DB-Fiddle.com to host the data temporarily when doing the challenges.
