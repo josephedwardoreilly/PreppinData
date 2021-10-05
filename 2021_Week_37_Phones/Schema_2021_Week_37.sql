@@ -5,12 +5,14 @@ SELECT
 "Monthly Cost",
 "Contract Length (months)",
 TO_DATE("Start Date", 'DD/MM/YYYY') AS "Start Date",
-TO_DATE("Start Date", 'DD/MM/YYYY') + "Contract Length (months)" * (INTERVAL '1 month') AS "End Date"
+TO_DATE("Start Date", 'DD/MM/YYYY') + ("Contract Length (months)" - 1) * (INTERVAL '1 month') AS "End Date"
 FROM phones;
 
 -- cumsum over the rows, by Name
 -- use a subquery to time slice the contract length
-SELECT *
+SELECT 
+*,
+SUM("Monthly Cost") OVER(PARTITION BY "Name" ORDER BY "Payment Date" ASC)
 FROM
   (SELECT
   "Name", "Monthly Cost",
